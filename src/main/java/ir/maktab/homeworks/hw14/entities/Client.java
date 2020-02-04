@@ -5,12 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Employee {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -18,9 +19,6 @@ public class Employee {
     String name;
     String family;
 
-    @ManyToOne
-    BankBranch branch;
-
-    @ManyToOne
-    Manager manager;
+    @OneToMany
+    List<Account> accounts;
 }

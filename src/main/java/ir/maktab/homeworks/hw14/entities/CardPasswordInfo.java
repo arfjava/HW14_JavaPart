@@ -5,22 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Employee {
+public class CardPasswordInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    Date expirationDate;
+    Integer cvv2;
+    String secondPassword;
 
-    String name;
-    String family;
-
-    @ManyToOne
-    BankBranch branch;
-
-    @ManyToOne
-    Manager manager;
+    @OneToOne
+    Card card;
 }

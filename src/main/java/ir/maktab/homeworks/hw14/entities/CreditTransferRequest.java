@@ -1,5 +1,6 @@
 package ir.maktab.homeworks.hw14.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,17 +11,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Employee {
+public class CreditTransferRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String name;
-    String family;
+    Long sourceCardId;
+    Long destinationCardId;
+    Long amount;
+    String description;
 
     @ManyToOne
-    BankBranch branch;
-
-    @ManyToOne
-    Manager manager;
+    Card card;
 }
