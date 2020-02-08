@@ -17,6 +17,7 @@ public class CardPasswordInfo {
     Long id;
     Date expirationDate;
     Integer cvv2;
+    String password;
     String secondPassword;
 
     @OneToOne

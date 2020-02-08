@@ -1,5 +1,6 @@
 package ir.maktab.homeworks.hw14.entities;
 
+import ir.maktab.homeworks.hw14.utilities.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +15,9 @@ import java.util.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    Long srcAccountId;
-    Long dstAccountId;
+    private TransactionType transactionType;
 
     Date date;
 
@@ -25,7 +25,8 @@ public class Transaction {
 
     Boolean isSuccessful;
 
-    @ManyToOne
-    Account account;
+    private String description;
 
+    @ManyToOne
+    private Account account;
 }

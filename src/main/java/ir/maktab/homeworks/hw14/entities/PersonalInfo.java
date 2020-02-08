@@ -5,20 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Client {
+public class PersonalInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String family;
+    private String nationalCode;
+    private String name;
+    private String family;
 
-    @OneToMany
-    List<Account> accounts;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 }

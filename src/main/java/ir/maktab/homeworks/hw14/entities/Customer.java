@@ -11,23 +11,21 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Account {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
     @Column(nullable = false, unique = true)
-    private String accountNumber;
+    String customerNumber;
 
-    private Boolean isActive;
+    @OneToOne(cascade = CascadeType.ALL)
+    PersonalInfo personalInfo;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    List<Account> accounts;
 
 
     @ManyToOne
-    private Customer customer;
-
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    private Card card;
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Transaction> transactions;
+    BankBranch branch;
 }

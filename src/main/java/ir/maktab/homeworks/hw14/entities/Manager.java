@@ -15,16 +15,15 @@ import java.util.List;
 public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String family;
+    @Column(nullable = false, unique = true)
+    private String managerNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private PersonalInfo personalInfo;
 
     @OneToOne
-    BankBranch branch;
-
-    @ManyToOne
-    List<Employee> employees;
-
+    private BankBranch branch;
 
 }

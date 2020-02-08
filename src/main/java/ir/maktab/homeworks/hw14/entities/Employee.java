@@ -13,14 +13,15 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    String family;
+    @Column(nullable = false, unique = true)
+    private String employeeNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private PersonalInfo personalInfo;
 
     @ManyToOne
-    BankBranch branch;
+    private BankBranch branch;
 
-    @ManyToOne
-    Manager manager;
 }

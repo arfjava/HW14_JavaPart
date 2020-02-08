@@ -9,5 +9,21 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">false</property>
 
+        <mapping class="ir.maktab.homeworks.hw14.entities.Account"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Address"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.PersonalInfo"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.BankBranch"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Card"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Customer"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Employee"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Manager"/>
+        <mapping class="ir.maktab.homeworks.hw14.entities.Transaction"/>
+
+
+<!--        <mapping class="ir.maktab.homeworks.hw14.entities.Parent"/>-->
+<!--        <mapping class="ir.maktab.homeworks.hw14.entities.Child"/>-->
+
+
     </session-factory>
 </hibernate-configuration>

@@ -59,7 +59,7 @@ public abstract class CrudRepository<Entity, ID extends Serializable> {
 
     public boolean isExisting(ID id){
         try {
-            findById(id).equals(null);
+            findById(id).equals(2L);
             return true;
         }catch (Exception e){
             return false;

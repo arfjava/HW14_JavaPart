@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,12 +16,15 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @ManyToOne
-    Account account;
+    Boolean isActive;
+
+    @Column(nullable = false, unique = true)
+    String cardNumber;
 
     @OneToOne
+    Account account;
+
+    @OneToOne(mappedBy = "card", cascade = CascadeType.ALL)
     CardPasswordInfo cardPasswordInfo;
 
-    @OneToMany
-    CreditTransferRequest creditTransferRequest;
 }

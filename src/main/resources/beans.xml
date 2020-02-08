@@ -3,5 +3,130 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    
+
+    <bean id="branch1" class="ir.maktab.homeworks.hw14.entities.BankBranch">
+        <property name="manager" ref="manager1"/>
+        <property name="employees" ref="employeeList"/>
+        <property name="address" ref="address1"/>
+        <property name="customers" ref="customerList"/>
+    </bean>
+
+
+    <bean id="manager1" class="ir.maktab.homeworks.hw14.entities.Manager">
+        <property name="managerNumber" value="001.1"/>
+        <property name="personalInfo" ref="person1"/>
+
+        <property name="branch" ref="branch1"/>
+    </bean>
+
+    <bean id="employee1" class="ir.maktab.homeworks.hw14.entities.Employee">
+        <property name="employeeNumber" value="001.001"/>
+        <property name="personalInfo" ref="person1"/>
+
+        <property name="branch" ref="branch1"/>
+    </bean>
+
+    <bean id="customer1" class="ir.maktab.homeworks.hw14.entities.Customer">
+        <property name="customerNumber" value="001.00001"/>
+        <property name="personalInfo" ref="person1"/>
+        <property name="accounts" ref="account1"/>
+
+        <property name="branch" ref="branch1"/>
+    </bean>
+
+
+    <bean id="account1" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="001.001"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card1"/>
+        <property name="transactions" ref="transactionList" />
+
+        <property name="customer" ref="customer1"/>
+    </bean>
+
+    <bean id="card1" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="1111222233334444"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo1"/>
+
+        <property name="account" ref="account1"/>
+    </bean>
+
+    <bean id="cardPasswordInfo1" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <property name="cvv2" value="1234"/>
+        <property name="expirationDate" ref="date1"/>
+        <property name="password" value="0000"/>
+        <property name="secondPassword" value="123456"/>
+
+        <property name="card" ref="card1"/>
+    </bean>
+
+    <bean id="date1" class="java.util.Date">
+        <property name="date" value="2020"/>
+    </bean>
+
+
+    <bean id="account2" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="001.002"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card2"/>
+        <property name="transactions" ref="transactionList" />
+    </bean>
+
+    <bean id="card2" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="1111222233335555"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo1"/>
+    </bean>
+
+
+    <bean name="transaction1" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" ref="date1"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+
+        <property name="account" ref="account1"/>
+    </bean>
+
+    <bean id="transactionList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="transaction1" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="customerList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="customer1" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="employeeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee1" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean name="person1" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Alireza"/>
+        <property name="family" value="Rezvani"/>
+        <property name="nationalCode" value="1111111111"/>
+        <property name="address" ref="address1"/>
+    </bean>
+
+    <bean name="address1" class="ir.maktab.homeworks.hw14.entities.Address">
+        <property name="country" value="Iran"/>
+        <property name="city" value="Tehran"/>
+        <property name="street" value="Resalat"/>
+        <property name="zioCode" value="1234567890"/>
+    </bean>
 </beans>

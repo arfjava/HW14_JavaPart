@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -14,14 +15,18 @@ import java.util.List;
 public class BankBranch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @OneToMany
-    List<Account> accounts;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
-    @OneToMany
-    List<Employee> employees;
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    private List<Customer> customers;
 
-    @OneToOne
-    Manager manager;
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    private List<Employee> employees;
+
+    @OneToOne(mappedBy = "branch", cascade = CascadeType.ALL)
+    private Manager manager;
 }
