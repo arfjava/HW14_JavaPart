@@ -4,117 +4,417 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--    ************************************ Branch *************************************-->
+
     <bean id="branch1" class="ir.maktab.homeworks.hw14.entities.BankBranch">
         <property name="manager" ref="manager1"/>
-        <property name="employees" ref="employeeList"/>
-        <property name="address" ref="address1"/>
-        <property name="customers" ref="customerList"/>
+        <property name="employees" ref="employeeList1"/>
+        <property name="address" ref="address11"/>
+        <property name="customers" ref="customerList1"/>
     </bean>
 
+    <bean id="branch2" class="ir.maktab.homeworks.hw14.entities.BankBranch">
+        <property name="manager" ref="manager2"/>
+        <property name="employees" ref="employeeList2"/>
+        <property name="address" ref="address12"/>
+        <property name="customers" ref="customerList2"/>
+    </bean>
+
+    <!--    ************************************ Manager *************************************-->
 
     <bean id="manager1" class="ir.maktab.homeworks.hw14.entities.Manager">
-        <property name="managerNumber" value="001.1"/>
-        <property name="personalInfo" ref="person1"/>
-
-        <property name="branch" ref="branch1"/>
+        <property name="managerNumber" value="1.1"/>
+        <property name="personalInfo" ref="person9"/>
     </bean>
+
+
+    <bean id="manager2" class="ir.maktab.homeworks.hw14.entities.Manager">
+        <property name="managerNumber" value="2.1"/>
+        <property name="personalInfo" ref="person10"/>
+    </bean>
+
+    <!--    ************************************ Employee *************************************-->
 
     <bean id="employee1" class="ir.maktab.homeworks.hw14.entities.Employee">
-        <property name="employeeNumber" value="001.001"/>
-        <property name="personalInfo" ref="person1"/>
-
+        <property name="employeeNumber" value="1.1"/>
+        <property name="personalInfo" ref="person5"/>
         <property name="branch" ref="branch1"/>
     </bean>
 
-    <bean id="customer1" class="ir.maktab.homeworks.hw14.entities.Customer">
-        <property name="customerNumber" value="001.00001"/>
-        <property name="personalInfo" ref="person1"/>
-        <property name="accounts" ref="account1"/>
-
+    <bean id="employee2" class="ir.maktab.homeworks.hw14.entities.Employee">
+        <property name="employeeNumber" value="1.2"/>
+        <property name="personalInfo" ref="person6"/>
         <property name="branch" ref="branch1"/>
     </bean>
 
+    <bean id="employee3" class="ir.maktab.homeworks.hw14.entities.Employee">
+        <property name="employeeNumber" value="2.1"/>
+        <property name="personalInfo" ref="person7"/>
+        <property name="branch" ref="branch2"/>
+    </bean>
+
+    <bean id="employee4" class="ir.maktab.homeworks.hw14.entities.Employee">
+        <property name="employeeNumber" value="2.2"/>
+        <property name="personalInfo" ref="person8"/>
+        <property name="branch" ref="branch2"/>
+    </bean>
+
+    <!--    ************************************ Employee List *************************************-->
+
+    <bean id="employeeList1" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee1" />
+                <ref bean="employee2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="employeeList2" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee3" />
+                <ref bean="employee4" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--    ************************************ Account *************************************-->
 
     <bean id="account1" class="ir.maktab.homeworks.hw14.entities.Account">
-        <property name="accountNumber" value="001.001"/>
+        <property name="accountNumber" value="1.001"/>
         <property name="isActive" value="true"/>
         <property name="card" ref="card1"/>
-        <property name="transactions" ref="transactionList" />
-
+        <property name="transactions" ref="transaction1" />
         <property name="customer" ref="customer1"/>
     </bean>
+
+    <bean id="account2" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="1.002"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card2"/>
+        <property name="transactions" ref="transaction2" />
+        <property name="customer" ref="customer1"/>
+    </bean>
+
+    <bean id="account3" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="1.003"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card3"/>
+        <property name="transactions" ref="transaction3" />
+        <property name="customer" ref="customer2"/>
+    </bean>
+
+    <bean id="account4" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="1.004"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card4"/>
+        <property name="transactions" ref="transaction4" />
+        <property name="customer" ref="customer2"/>
+    </bean>
+
+    <bean id="account5" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="2.001"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card5"/>
+        <property name="transactions" ref="transaction5" />
+        <property name="customer" ref="customer3"/>
+    </bean>
+
+    <bean id="account6" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="2.002"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card6"/>
+        <property name="transactions" ref="transaction6" />
+        <property name="customer" ref="customer3"/>
+    </bean>
+
+    <bean id="account7" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="2.003"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card7"/>
+        <property name="transactions" ref="transaction7" />
+        <property name="customer" ref="customer4"/>
+    </bean>
+
+    <bean id="account8" class="ir.maktab.homeworks.hw14.entities.Account">
+        <property name="accountNumber" value="2.004"/>
+        <property name="isActive" value="true"/>
+        <property name="card" ref="card8"/>
+        <property name="transactions" ref="transaction8" />
+        <property name="customer" ref="customer4"/>
+    </bean>
+
+    <!--    ************************************ Account List *************************************-->
+
+    <bean id="accountList1" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="account1" />
+                <ref bean="account2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="accountList2" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="account3" />
+                <ref bean="account4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="accountList3" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="account5" />
+                <ref bean="account6"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="accountList4" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="account7" />
+                <ref bean="account8"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!--    ************************************ Customer *************************************-->
+
+    <bean id="customer1" class="ir.maktab.homeworks.hw14.entities.Customer">
+        <property name="customerNumber" value="1.1"/>
+        <property name="personalInfo" ref="person1"/>
+        <property name="accounts" ref="accountList1"/>
+        <property name="branch" ref="branch1"/>
+    </bean>
+
+    <bean id="customer2" class="ir.maktab.homeworks.hw14.entities.Customer">
+        <property name="customerNumber" value="1.2"/>
+        <property name="personalInfo" ref="person2"/>
+        <property name="accounts" ref="accountList2"/>
+        <property name="branch" ref="branch1"/>
+    </bean>
+
+    <bean id="customer3" class="ir.maktab.homeworks.hw14.entities.Customer">
+        <property name="customerNumber" value="2.1"/>
+        <property name="personalInfo" ref="person3"/>
+        <property name="accounts" ref="accountList3"/>
+        <property name="branch" ref="branch2"/>
+    </bean>
+
+    <bean id="customer4" class="ir.maktab.homeworks.hw14.entities.Customer">
+        <property name="customerNumber" value="2.2"/>
+        <property name="personalInfo" ref="person4"/>
+        <property name="accounts" ref="accountList4"/>
+        <property name="branch" ref="branch2"/>
+    </bean>
+
+    <!--    ************************************ Customer List *************************************-->
+
+    <bean id="customerList1" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="customer1" />
+                <ref bean="customer2" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="customerList2" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="customer3" />
+                <ref bean="customer4" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--    ************************************ Transaction *************************************-->
+
+    <bean name="transaction1" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/10"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account1"/>
+    </bean>
+
+    <bean name="transaction2" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/11"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account2"/>
+    </bean>
+
+    <bean name="transaction3" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/12"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account3"/>
+    </bean>
+
+    <bean name="transaction4" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/13"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account4"/>
+    </bean>
+
+    <bean name="transaction5" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/14"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account5"/>
+    </bean>
+
+    <bean name="transaction6" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/15"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account6"/>
+    </bean>
+
+    <bean name="transaction7" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/16"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account7"/>
+    </bean>
+
+    <bean name="transaction8" class="ir.maktab.homeworks.hw14.entities.Transaction">
+        <property name="amount" value="100000"/>
+        <property name="date" value="1398/10/17"/>
+        <property name="description" value="eftetah"/>
+        <property name="isSuccessful" value="true"/>
+        <property name="transactionType" value="DEPOSIT"/>
+        <property name="account" ref="account8"/>
+    </bean>
+
+    <!--    ************************************ Card *************************************-->
 
     <bean id="card1" class="ir.maktab.homeworks.hw14.entities.Card">
         <property name="cardNumber" value="1111222233334444"/>
         <property name="isActive" value="true"/>
         <property name="cardPasswordInfo" ref="cardPasswordInfo1"/>
-
-        <property name="account" ref="account1"/>
-    </bean>
-
-    <bean id="cardPasswordInfo1" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
-        <property name="cvv2" value="1234"/>
-        <property name="expirationDate" ref="date1"/>
-        <property name="password" value="0000"/>
-        <property name="secondPassword" value="123456"/>
-
-        <property name="card" ref="card1"/>
-    </bean>
-
-    <bean id="date1" class="java.util.Date">
-        <property name="date" value="2020"/>
-    </bean>
-
-
-    <bean id="account2" class="ir.maktab.homeworks.hw14.entities.Account">
-        <property name="accountNumber" value="001.002"/>
-        <property name="isActive" value="true"/>
-        <property name="card" ref="card2"/>
-        <property name="transactions" ref="transactionList" />
     </bean>
 
     <bean id="card2" class="ir.maktab.homeworks.hw14.entities.Card">
-        <property name="cardNumber" value="1111222233335555"/>
+        <property name="cardNumber" value="9999888877774444"/>
         <property name="isActive" value="true"/>
-        <property name="cardPasswordInfo" ref="cardPasswordInfo1"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo2"/>
     </bean>
 
-
-    <bean name="transaction1" class="ir.maktab.homeworks.hw14.entities.Transaction">
-        <property name="amount" value="100000"/>
-        <property name="date" ref="date1"/>
-        <property name="description" value="eftetah"/>
-        <property name="isSuccessful" value="true"/>
-        <property name="transactionType" value="DEPOSIT"/>
-
-        <property name="account" ref="account1"/>
+    <bean id="card3" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="0000111122223333"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo3"/>
     </bean>
 
-    <bean id="transactionList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="transaction1" />
-            </list>
-        </constructor-arg>
+    <bean id="card4" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="1234123412341234"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo4"/>
     </bean>
 
-
-    <bean id="customerList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="customer1" />
-            </list>
-        </constructor-arg>
+    <bean id="card5" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="2222333344445555"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo5"/>
     </bean>
 
-
-    <bean id="employeeList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="employee1" />
-            </list>
-        </constructor-arg>
+    <bean id="card6" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="5555666644443333"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo6"/>
     </bean>
+
+    <bean id="card7" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="8888222255556666"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo7"/>
+    </bean>
+
+    <bean id="card8" class="ir.maktab.homeworks.hw14.entities.Card">
+        <property name="cardNumber" value="1122334455667788"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="cardPasswordInfo8"/>
+    </bean>
+
+    <!--    ************************************ Card Password Info *************************************-->
+
+    <bean id="cardPasswordInfo1" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="1234"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="1111"/>
+        <constructor-arg name="secondPassword" value="111111"/>
+    </bean>
+
+    <bean id="cardPasswordInfo2" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="1111"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="2222"/>
+        <constructor-arg name="secondPassword" value="111111"/>
+    </bean>
+
+    <bean id="cardPasswordInfo3" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="3322"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="2569"/>
+        <constructor-arg name="secondPassword" value="115411"/>
+    </bean>
+
+    <bean id="cardPasswordInfo4" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="6541"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="2654"/>
+        <constructor-arg name="secondPassword" value="654986"/>
+    </bean>
+
+    <bean id="cardPasswordInfo5" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="2654"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="3654"/>
+        <constructor-arg name="secondPassword" value="256984"/>
+    </bean>
+
+    <bean id="cardPasswordInfo6" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="1234"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="1111"/>
+        <constructor-arg name="secondPassword" value="365214"/>
+    </bean>
+
+    <bean id="cardPasswordInfo7" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="1234"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="3652"/>
+        <constructor-arg name="secondPassword" value="965847"/>
+    </bean>
+
+    <bean id="cardPasswordInfo8" class="ir.maktab.homeworks.hw14.entities.CardPasswordInfo">
+        <constructor-arg name="cvv2" value="1234"/>
+        <constructor-arg name="expirationDate" value="1399/01/01"/>
+        <constructor-arg name="password" value="3652"/>
+        <constructor-arg name="secondPassword" value="965884"/>
+    </bean>
+
+<!--    ************************************ Personal Info *************************************-->
 
     <bean name="person1" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
         <property name="name" value="Alireza"/>
@@ -123,10 +423,143 @@
         <property name="address" ref="address1"/>
     </bean>
 
+    <bean name="person2" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Ali"/>
+        <property name="family" value="Alavi"/>
+        <property name="nationalCode" value="1111122222"/>
+        <property name="address" ref="address2"/>
+    </bean>
+
+    <bean name="person3" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Reza"/>
+        <property name="family" value="Razavi"/>
+        <property name="nationalCode" value="0011223344"/>
+        <property name="address" ref="address3"/>
+    </bean>
+
+    <bean name="person4" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Mohammad"/>
+        <property name="family" value="Mohammadi"/>
+        <property name="nationalCode" value="6666655555"/>
+        <property name="address" ref="address4"/>
+    </bean>
+
+    <bean name="person5" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Ahmad"/>
+        <property name="family" value="Ahmadi"/>
+        <property name="nationalCode" value="5555555555"/>
+        <property name="address" ref="address5"/>
+    </bean>
+
+    <bean name="person6" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Ali"/>
+        <property name="family" value="Rezvani"/>
+        <property name="nationalCode" value="9999999999"/>
+        <property name="address" ref="address6"/>
+    </bean>
+
+    <bean name="person7" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Alireza"/>
+        <property name="family" value="Mohammadi"/>
+        <property name="nationalCode" value="1111111112"/>
+        <property name="address" ref="address7"/>
+    </bean>
+
+    <bean name="person8" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Alireza"/>
+        <property name="family" value="Razavi"/>
+        <property name="nationalCode" value="1111111113"/>
+        <property name="address" ref="address8"/>
+    </bean>
+
+    <bean name="person9" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Alireza"/>
+        <property name="family" value="Mohammadi"/>
+        <property name="nationalCode" value="1111111221"/>
+        <property name="address" ref="address9"/>
+    </bean>
+
+    <bean name="person10" class="ir.maktab.homeworks.hw14.entities.PersonalInfo">
+        <property name="name" value="Mohammad"/>
+        <property name="family" value="Rezvani"/>
+        <property name="nationalCode" value="1888811111"/>
+        <property name="address" ref="address10"/>
+    </bean>
+
+    <!--    ************************************ Address  *************************************-->
+
     <bean name="address1" class="ir.maktab.homeworks.hw14.entities.Address">
-        <property name="country" value="Iran"/>
-        <property name="city" value="Tehran"/>
-        <property name="street" value="Resalat"/>
-        <property name="zioCode" value="1234567890"/>
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Ferdowsi"/>
+        <constructor-arg name="zipCode" value="1234567890"/>
+    </bean>
+    <bean name="address2" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Azadi"/>
+        <constructor-arg name="zipCode" value="1234567891"/>
+    </bean>
+    <bean name="address3" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Isfahan"/>
+        <constructor-arg name="street" value="Ferdowsi"/>
+        <constructor-arg name="zipCode" value="1234567892"/>
+    </bean>
+    <bean name="address4" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tabriz"/>
+        <constructor-arg name="street" value="Valiasr"/>
+        <constructor-arg name="zipCode" value="1234567893"/>
+    </bean>
+    <bean name="address5" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Valiasr"/>
+        <constructor-arg name="zipCode" value="1234567894"/>
+    </bean>
+
+    <bean name="address6" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Kargar"/>
+        <constructor-arg name="zipCode" value="1234567895"/>
+    </bean>
+    <bean name="address7" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Resalat"/>
+        <constructor-arg name="zipCode" value="1234567896"/>
+    </bean>
+    <bean name="address8" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tehran"/>
+        <constructor-arg name="street" value="Piroozi"/>
+        <constructor-arg name="zipCode" value="1234567897"/>
+    </bean>
+    <bean name="address9" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Tabriz"/>
+        <constructor-arg name="street" value="Valiasr"/>
+        <constructor-arg name="zipCode" value="1122554466"/>
+    </bean>
+
+    <bean name="address10" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Ahvaz"/>
+        <constructor-arg name="street" value="Kargar"/>
+        <constructor-arg name="zipCode" value="6985145233"/>
+    </bean>
+    <bean name="address11" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Shiraz"/>
+        <constructor-arg name="street" value="Resalat"/>
+        <constructor-arg name="zipCode" value="8881116664"/>
+    </bean>
+    <bean name="address12" class="ir.maktab.homeworks.hw14.entities.Address">
+        <constructor-arg name="country" value="Iran"/>
+        <constructor-arg name="city" value="Mashhad"/>
+        <constructor-arg name="street" value="Piroozi"/>
+        <constructor-arg name="zipCode" value="6598324444"/>
     </bean>
 </beans>

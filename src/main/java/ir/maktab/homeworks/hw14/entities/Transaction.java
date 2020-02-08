@@ -17,12 +17,16 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private TransactionType transactionType;
 
-    Date date;
+    @Column(nullable = false)
+    String date;
 
+    @Column(nullable = false)
     Long amount;
 
+    @Column(nullable = false)
     Boolean isSuccessful;
 
     private String description;

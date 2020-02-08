@@ -1,8 +1,6 @@
 package ir.maktab.homeworks.hw14.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,6 +21,8 @@ public class Customer {
     PersonalInfo personalInfo;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     List<Account> accounts;
 
 

@@ -9,11 +9,15 @@ public class Initialization {
     public static void execute() {
 
         if (!BankBranchRepository.getInstance().isExisting(1L)) {
-
             ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
             BankBranch bankBranch1 = context.getBean("branch1", BankBranch.class);
-
+            BankBranch bankBranch2 = context.getBean("branch2", BankBranch.class);
             BankBranchRepository.getInstance().save(bankBranch1);
+            BankBranchRepository.getInstance().save(bankBranch2);
+            System.out.println("Initial Data Saved in Database!");
+        }
+        else {
+            System.out.println("Initial Data Already Exists in Database!");
         }
     }
 }

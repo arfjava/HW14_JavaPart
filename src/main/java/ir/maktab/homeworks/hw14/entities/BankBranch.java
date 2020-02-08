@@ -1,8 +1,8 @@
 package ir.maktab.homeworks.hw14.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,15 +18,25 @@ public class BankBranch {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Address address;
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<Customer> customers;
 
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private List<Employee> employees;
 
-    @OneToOne(mappedBy = "branch", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Manager manager;
+
+
 }

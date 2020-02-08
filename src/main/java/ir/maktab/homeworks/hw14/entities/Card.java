@@ -1,8 +1,6 @@
 package ir.maktab.homeworks.hw14.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,15 +14,16 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Column(nullable = false)
     Boolean isActive;
 
     @Column(nullable = false, unique = true)
     String cardNumber;
 
-    @OneToOne
-    Account account;
 
-    @OneToOne(mappedBy = "card", cascade = CascadeType.ALL)
+    @OneToOne( cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     CardPasswordInfo cardPasswordInfo;
 
 }

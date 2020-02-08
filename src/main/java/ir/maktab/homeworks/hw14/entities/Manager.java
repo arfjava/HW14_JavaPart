@@ -23,7 +23,4 @@ public class Manager {
     @OneToOne(cascade = CascadeType.ALL)
     private PersonalInfo personalInfo;
 
-    @OneToOne
-    private BankBranch branch;
-
 }

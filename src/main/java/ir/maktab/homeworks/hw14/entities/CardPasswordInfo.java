@@ -15,11 +15,24 @@ public class CardPasswordInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    Date expirationDate;
+
+    @Column(nullable = false)
+    String expirationDate;
+
+    @Column(nullable = false)
     Integer cvv2;
+
+    @Column(nullable = false)
     String password;
+
+    @Column(nullable = false)
     String secondPassword;
 
-    @OneToOne
-    Card card;
+    public CardPasswordInfo(String expirationDate, Integer cvv2, String password, String secondPassword) {
+        this.expirationDate = expirationDate;
+        this.cvv2 = cvv2;
+        this.password = password;
+        this.secondPassword = secondPassword;
+    }
+
 }
