@@ -3,6 +3,7 @@ package ir.maktab.homeworks.hw14.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,10 +21,14 @@ public class Account {
     @Column(nullable = false)
     private Boolean isActive;
 
+    @Column(nullable = false)
+    private Long balance;
 
     @ManyToOne
     private Customer customer;
 
+
+    // TODO: 2/10/2020 another design --> OneToMany
     @OneToOne( cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
@@ -32,5 +37,5 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Transaction> transactions;
+    private List<Transaction> transactions = new ArrayList<>();
 }

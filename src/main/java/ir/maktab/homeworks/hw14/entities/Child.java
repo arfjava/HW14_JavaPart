@@ -1,6 +1,5 @@
 //package ir.maktab.homeworks.hw14.entities;
 //
-//
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
@@ -11,16 +10,11 @@
 //@AllArgsConstructor
 //@NoArgsConstructor
 //@Entity
-//public class CreditTransferRequest {
+//public class Child {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    Long id;
-//
-//    Long sourceCardId;
-//    Long destinationCardId;
-//    Long amount;
-//    String description;
+//    private Long id;
 //
 //    @ManyToOne
-//    Card card;
+//    private Parent parent;
 //}

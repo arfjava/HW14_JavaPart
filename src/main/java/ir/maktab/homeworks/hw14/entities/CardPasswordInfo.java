@@ -25,14 +25,17 @@ public class CardPasswordInfo {
     @Column(nullable = false)
     String password;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)  can be null
     String secondPassword;
+
+    Integer wrongPasswordCounter;
 
     public CardPasswordInfo(String expirationDate, Integer cvv2, String password, String secondPassword) {
         this.expirationDate = expirationDate;
         this.cvv2 = cvv2;
         this.password = password;
         this.secondPassword = secondPassword;
+        this.wrongPasswordCounter = 0;
     }
 
 }

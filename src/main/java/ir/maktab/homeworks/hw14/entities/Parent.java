@@ -6,21 +6,17 @@
 //import lombok.NoArgsConstructor;
 //
 //import javax.persistence.*;
+//import java.util.List;
 //
 //@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
 //@Entity
-//public class CreditTransferRequest {
+//public class Parent {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    Long id;
+//    private Long id;
 //
-//    Long sourceCardId;
-//    Long destinationCardId;
-//    Long amount;
-//    String description;
-//
-//    @ManyToOne
-//    Card card;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
+//    private List<Child> children;
 //}

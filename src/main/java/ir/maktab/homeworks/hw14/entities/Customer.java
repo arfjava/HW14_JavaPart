@@ -3,6 +3,7 @@ package ir.maktab.homeworks.hw14.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -23,7 +24,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    List<Account> accounts;
+    List<Account> accounts = new ArrayList<>();
 
 
     @ManyToOne

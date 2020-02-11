@@ -22,16 +22,17 @@ public class BankBranch {
     @ToString.Exclude
     private Address address;
 
+    // TODO: 2/10/2020 another design --> ManyToMany
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Customer> customers;
+    private List<Customer> customers = new ArrayList<>();
 
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
