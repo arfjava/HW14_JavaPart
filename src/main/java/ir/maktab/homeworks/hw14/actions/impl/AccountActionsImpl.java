@@ -71,14 +71,22 @@ public class AccountActionsImpl implements AccountActions {
         Account account = AccountRepository.getInstance().findByAccountNumber(accountNumber);
 
         if (account.getIsActive()) {
-            if (account.getCard() != null)
-                account.getCard().setIsActive(false);
-            Long balance = account.getBalance();
-            account.getTransactions().add(new Transaction(null, TransactionType.WITHDRAW, MyDate.getMyFormat().format(new Date())
-                    , balance, true, "Closing Account", account));
-            account.setBalance(0L);
-            account.setIsActive(false);
-            result = AccountRepository.getInstance().update(account);
+            if (account.getCustomer().getAccounts().stream().filter(acc -> acc.getIsActive())
+                    .collect(Collectors.toList()).size() > 1) {
+
+                if (account.getCard() != null)
+                    account.getCard().setIsActive(false);
+                Long balance = account.getBalance();
+                account.getTransactions().add(new Transaction(null, TransactionType.WITHDRAW, MyDate.getMyFormat().format(new Date())
+                        , balance, true, "Closing Account", account));
+                account.setBalance(0L);
+                account.setIsActive(false);
+                result = AccountRepository.getInstance().update(account);
+            }
+            else {
+                System.out.println("You Cant Close this Account Because Each Customer Must Have One Active Account At Least!");
+                result = null;
+            }
         }
         else {
             System.out.println("Requested Account is Disabled Already!");

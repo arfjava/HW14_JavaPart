@@ -71,6 +71,9 @@ public class CustomerActionsImpl implements CustomerActions {
 
         System.out.println("Customer Created! Your Customer Number: " + customerNumber);
 
+        System.out.println("You Need to Create an Account Because Each Customer Must Have One Active Account At Least!");
+        new AccountActionsImpl().add();
+
         return CustomerRepository.getInstance().findByCustomerNumber(customerNumber);
     }
 
