@@ -12,7 +12,6 @@ import ir.maktab.homeworks.hw14.inputs.Input;
 import ir.maktab.homeworks.hw14.repositories.AccountRepository;
 import ir.maktab.homeworks.hw14.repositories.CustomerRepository;
 import ir.maktab.homeworks.hw14.summary_classes.AccountSummary;
-import ir.maktab.homeworks.hw14.summary_classes.TransactionSummary;
 import ir.maktab.homeworks.hw14.utilities.AutoGenerateNumbers;
 import ir.maktab.homeworks.hw14.utilities.JsonFactory;
 import ir.maktab.homeworks.hw14.utilities.MyDate;
@@ -20,7 +19,6 @@ import ir.maktab.homeworks.hw14.utilities.TransactionType;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

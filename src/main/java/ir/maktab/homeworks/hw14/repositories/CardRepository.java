@@ -4,7 +4,6 @@ import ir.maktab.homeworks.hw14.config.hibernate.HibernateUtil;
 import ir.maktab.homeworks.hw14.config.hibernate.repositories.CrudRepository;
 import ir.maktab.homeworks.hw14.entities.Account;
 import ir.maktab.homeworks.hw14.entities.Card;
-import ir.maktab.homeworks.hw14.entities.Transaction;
 import org.hibernate.Session;
 
 import java.util.stream.Collectors;

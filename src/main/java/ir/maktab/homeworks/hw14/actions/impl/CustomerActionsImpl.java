@@ -6,15 +6,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ir.maktab.homeworks.hw14.actions.abstraction.CustomerActions;
 import ir.maktab.homeworks.hw14.entities.*;
 import ir.maktab.homeworks.hw14.inputs.Input;
-import ir.maktab.homeworks.hw14.repositories.AccountRepository;
 import ir.maktab.homeworks.hw14.repositories.BankBranchRepository;
 import ir.maktab.homeworks.hw14.repositories.CustomerRepository;
 import ir.maktab.homeworks.hw14.utilities.AutoGenerateNumbers;
-import ir.maktab.homeworks.hw14.utilities.IsNumeric;
 import ir.maktab.homeworks.hw14.utilities.JsonFactory;
 
-import java.util.Map;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CustomerActionsImpl implements CustomerActions {

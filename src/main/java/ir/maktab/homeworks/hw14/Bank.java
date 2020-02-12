@@ -1,7 +1,6 @@
 package ir.maktab.homeworks.hw14;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import ir.maktab.homeworks.hw14.actions.abstraction.AccountActions;
 import ir.maktab.homeworks.hw14.actions.abstraction.CardActions;
 import ir.maktab.homeworks.hw14.actions.abstraction.CustomerActions;
@@ -10,24 +9,11 @@ import ir.maktab.homeworks.hw14.actions.impl.AccountActionsImpl;
 import ir.maktab.homeworks.hw14.actions.impl.CardActionsImpl;
 import ir.maktab.homeworks.hw14.actions.impl.CustomerActionsImpl;
 import ir.maktab.homeworks.hw14.actions.impl.TransactionActionsImpl;
-import ir.maktab.homeworks.hw14.entities.*;
-import ir.maktab.homeworks.hw14.functions.Functions;
 import ir.maktab.homeworks.hw14.menu.Menu;
-import ir.maktab.homeworks.hw14.repositories.AccountRepository;
-import ir.maktab.homeworks.hw14.repositories.BankBranchRepository;
-import ir.maktab.homeworks.hw14.repositories.CardRepository;
-import ir.maktab.homeworks.hw14.repositories.CustomerRepository;
-import ir.maktab.homeworks.hw14.summary_classes.AccountSummary;
-import ir.maktab.homeworks.hw14.summary_classes.TransactionSummary;
 import ir.maktab.homeworks.hw14.utilities.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Bank {
     public static void main(String[] args) throws JsonProcessingException, ParseException {

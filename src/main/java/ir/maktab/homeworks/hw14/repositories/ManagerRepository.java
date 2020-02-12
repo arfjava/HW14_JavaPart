@@ -2,7 +2,6 @@ package ir.maktab.homeworks.hw14.repositories;
 
 import ir.maktab.homeworks.hw14.config.hibernate.HibernateUtil;
 import ir.maktab.homeworks.hw14.config.hibernate.repositories.CrudRepository;
-import ir.maktab.homeworks.hw14.entities.Account;
 import ir.maktab.homeworks.hw14.entities.Manager;
 import org.hibernate.Session;
 

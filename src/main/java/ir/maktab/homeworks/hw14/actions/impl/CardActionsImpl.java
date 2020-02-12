@@ -14,10 +14,7 @@ import ir.maktab.homeworks.hw14.repositories.CardRepository;
 import ir.maktab.homeworks.hw14.utilities.*;
 import ir.maktab.homeworks.hw14.validations.Validate;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
-import java.util.Random;
 import java.util.Scanner;
 
 public class CardActionsImpl implements CardActions {

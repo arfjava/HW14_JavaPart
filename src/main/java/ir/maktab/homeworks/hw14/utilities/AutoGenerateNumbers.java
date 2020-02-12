@@ -1,6 +1,5 @@
 package ir.maktab.homeworks.hw14.utilities;
 
-import ir.maktab.homeworks.hw14.entities.Account;
 import ir.maktab.homeworks.hw14.entities.Customer;
 import ir.maktab.homeworks.hw14.repositories.BankBranchRepository;
 import ir.maktab.homeworks.hw14.repositories.CardRepository;
